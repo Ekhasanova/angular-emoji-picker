@@ -121,6 +121,41 @@
           }
         }
       }
+    },
+    "emojiPicker": {
+      "root": "projects/emoji-picker",
+      "sourceRoot": "projects/emoji-picker/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/emoji-picker/tsconfig.lib.json",
+            "project": "projects/emoji-picker/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/emoji-picker/src/test.ts",
+            "tsConfig": "projects/emoji-picker/tsconfig.spec.json",
+            "karmaConfig": "projects/emoji-picker/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/emoji-picker/tsconfig.lib.json",
+              "projects/emoji-picker/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "my-workspace"
