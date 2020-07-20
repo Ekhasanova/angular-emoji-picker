@@ -1,8 +1,12 @@
 {
   "name": "daily-angular-emoji-picker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
-    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json"
+    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:schemas": "rsync -R ./schematics/schema.json ../../dist/emoji-picker/",
+    "copy:files": "rsync -R ./schematics/ng-add/* ../../dist/emoji-picker/",
+    "copy:collection": "rsync ./schematics/collection.json ../../dist/emoji-picker/schematics/collection.json",
+    "postbuild": "npm run copy:schemas && npm run copy:files && npm run copy:collection"
   },
   "description": "Afisha Daily emoji-picker",
   "repository": {
