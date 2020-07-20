@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, NgZone, OnInit, Output, ViewChild } from '@angular/core';
 import { EmojiPicker } from 'daily-emoji-picker';
 import { EmojiMap, EmojiSourceFn } from 'daily-emoji-picker/dist/types';
 import { EmojiData } from 'daily-emoji-picker/src/ts/types';
@@ -15,15 +15,17 @@ export class EmojiPickerComponent<T extends EmojiMap> implements OnInit {
   @Output() onSelect: EventEmitter<EmojiData>;
   @ViewChild('container') container: ElementRef;
 
-  constructor() { }
+  constructor(private ngZone: NgZone) { }
 
   ngOnInit() {
-    const emojiBlock = new EmojiPicker(this.container.nativeElement, {
-      source: this.source,
-      defaultActiveGroup: this.activeGroup,
-      onSelect: this.onSelected
+    this.ngZone.runOutsideAngular(() => {
+      const emojiBlock = new EmojiPicker(this.container.nativeElement, {
+        source: this.source,
+        defaultActiveGroup: this.activeGroup,
+        onSelect: this.onSelected
+      });
+      emojiBlock.init();
     });
-    emojiBlock.init();
   }
 
   onSelected(data: EmojiData): void {
