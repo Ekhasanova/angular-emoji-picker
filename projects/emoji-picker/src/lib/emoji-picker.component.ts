@@ -12,7 +12,7 @@ import { EmojiData } from 'daily-emoji-picker/src/ts/types';
 export class EmojiPickerComponent<T extends EmojiMap> implements OnInit {
   @Input() source: EmojiSourceFn<T>;
   @Input() activeGroup?: string;
-  @Output() onSelect: EventEmitter<EmojiData>;
+  @Output() onSelect: EventEmitter<EmojiData> = new EventEmitter<EmojiData>();
   @ViewChild('container') container: ElementRef;
 
   constructor(private ngZone: NgZone) { }
