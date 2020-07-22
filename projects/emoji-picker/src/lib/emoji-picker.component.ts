@@ -7,7 +7,8 @@ import { EmojiData } from 'daily-emoji-picker/src/ts/types';
   selector: 'lib-emoji-picker',
   template: `
     <div #container></div>
-  `
+  `,
+  styleUrls: ['./emoji-picker.component.scss']
 })
 export class EmojiPickerComponent<T extends EmojiMap> implements OnInit {
   @Input() source: EmojiSourceFn<T>;
