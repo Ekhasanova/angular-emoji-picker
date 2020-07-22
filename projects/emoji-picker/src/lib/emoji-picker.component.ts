@@ -23,7 +23,7 @@ export class EmojiPickerComponent<T extends EmojiMap> implements OnInit {
       const emojiBlock = new EmojiPicker(this.container.nativeElement, {
         source: this.source,
         defaultActiveGroup: this.activeGroup,
-        onSelect: this.onSelected
+        onSelect: this.onSelected.bind(this)
       });
       emojiBlock.init();
     });
