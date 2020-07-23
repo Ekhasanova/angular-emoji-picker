@@ -9,12 +9,17 @@
     "copy:collection": "rsync ./schematics/collection.json ../../dist/emoji-picker/schematics/collection.json",
     "postbuild": "npm run copy:styles && npm run copy:schemas && npm run copy:files && npm run copy:collection"
   },
-  "description": "Afisha Daily emoji-picker",
+  "description": "Afisha Daily emoji-picker integration for Angular 7+",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ekhasanova/angular-emoji-picker.git"
   },
   "keywords": [
+    "angular",
+    "angular2",
+    "angular4",
+    "angular-library",
+    "angular-component",
     "emoji"
   ],
   "author": "e.khasanova",
@@ -26,9 +31,9 @@
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "daily-emoji-picker": "^1.0.7",
     "rxjs": "^6.6.0",
-    "zone.js": "^0.10.3"
+    "zone.js": "^0.10.3",
+    "daily-emoji-picker": "^1.0.7"
   },
   "schematics": "./schematics/collection.json"
 }
