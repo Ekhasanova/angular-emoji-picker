@@ -23,6 +23,7 @@ export class EmojiPickerComponent<T extends EmojiMap> implements OnInit {
   }
 
   private setEmojiBlock() {
+    console.log(this.source);
     this.ngZone.runOutsideAngular(() => {
       this.emojiBlock = new EmojiPicker({
         source: this.source,
@@ -34,6 +35,7 @@ export class EmojiPickerComponent<T extends EmojiMap> implements OnInit {
   }
 
   public callEmojiBlockAction(action: string, parameter?: any) {
+    console.log(this.emojiBlock);
     if (this.emojiBlock[action]) {
       this.ngZone.runOutsideAngular(() => {
         this.emojiBlock[action](parameter);
