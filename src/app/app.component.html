@@ -1,10 +1,13 @@
 <div style="position: relative;">
   <h2>Example of emoji-picker</h2>
-  <div class="picker">Кнопка</div>
-  <div #container>
-    <lib-emoji-picker
-      [source]="emojiService.getMockedData"
-      (onSelect)="emojiService.onSelected($event)"
+  <div (clickOutside)="onOutsideClick($event)">
+    <div class="picker" (click)="onClick()">Кнопка</div>
+    <div #container>
+    </div>
+    <lib-emoji-picker #pickerComponent
+                      [source]="emojiService.getMockedData"
+                      (selectHandler)="emojiService.onSelected($event)"
     ></lib-emoji-picker>
   </div>
+
 </div>

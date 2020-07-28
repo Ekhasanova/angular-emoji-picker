@@ -115,14 +115,18 @@
   }
 }
 .emoji-block {
-  position: absolute;
-  top: 100%;
-  left: 0;
+  position: relative;
   width: 305px;
   height: 420px;
-  z-index: 5;
   background-color: #ffffff;
   border: 1px solid #dedede;
+  display: none;
+}
+.emoji-block * {
+  box-sizing: border-box;
+}
+.emoji-block.is-show {
+  display: block;
 }
 .emoji-block__item {
   width: 40px;
@@ -159,6 +163,7 @@
   clear: both;
 }
 .emoji-block__groups-item {
+  position: relative;
   cursor: pointer;
   height: 55px;
   width: 35px;
@@ -182,6 +187,7 @@
 }
 .emoji-block__wrap {
   display: none;
+  position: relative;
   margin-top: 20px;
   max-height: 315px;
   overflow: auto;

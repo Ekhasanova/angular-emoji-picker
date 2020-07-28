@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import autobind from 'autobind-decorator'
 import emojiMockData from '../assets/emoji-stub.json';
-import { of, Observable } from 'rxjs';
-import { EmojiMap, EmojiItem } from 'daily-emoji-picker/src/ts/types';
+import { of } from 'rxjs';
+import { EmojiMap, EmojiData } from 'daily-emoji-picker/src/ts/types';
 
 
-export interface EmojiData {
-    "name": string,
-    "group": string,
-    "relative_path": string,
-    "url": string
+export interface Emoji {
+    name: string;
+    group: string;
+    relative_path: string;
+    url: string;
 }
 
 @Injectable({
@@ -24,7 +24,7 @@ export class EmojiService {
     return of(this.map(emojiMockData)).toPromise();
   }
 
-  private map(emojiArray: EmojiData[]): EmojiMap {
+  private map(emojiArray: Emoji[]): EmojiMap {
     const _map = {};
     for (let i = 0; i < emojiArray.length; i++) {
       const emoji = emojiArray[i];
@@ -38,7 +38,7 @@ export class EmojiService {
     return _map;
   }
 
-  public onSelected(record: EmojiItem) {
+  public onSelected(record: EmojiData) {
     console.log(record);
   }
 
