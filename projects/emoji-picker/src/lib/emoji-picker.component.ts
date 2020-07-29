@@ -14,6 +14,9 @@ export class EmojiPickerComponent<T extends EmojiMap> implements OnInit {
   @Input() activeGroup?: string;
   @Output() selectHandler: EventEmitter<EmojiData> = new EventEmitter<EmojiData>();
 
+  // TO DO @input container or have own
+  // TO DO @input button or have own
+
   private emojiBlock: EmojiPicker<EmojiMap>;
 
   constructor(private ngZone: NgZone) { }
