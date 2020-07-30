@@ -1,7 +1,13 @@
 const { src, dest, series } = require('gulp');
 
+const base64 = require('gulp-base64');
+
 function copyCss() {
   return src('node_modules/daily-emoji-picker/dist/*.css')
+    .pipe(base64({
+      extensions: ['png'],
+      maxImageSize: 8*40000,
+    }))
     .pipe(dest('projects/emoji-picker/assets/'));
 }
 
@@ -10,4 +16,4 @@ function copyImg() {
     .pipe(dest('projects/emoji-picker/assets/img'));
 }
 
-exports.css_task = series(copyCss, copyImg);
+exports.css_task = copyCss;

@@ -1,9 +1,6 @@
 <div style="position: relative;">
   <h2>Example of emoji-picker</h2>
-  <div (clickOutside)="onOutsideClick()">
-    <div class="picker" (click)="onClick()">Кнопка</div>
-    <div #container>
-    </div>
+  <div>
     <lib-emoji-picker #pickerComponent
                       [source]="emojiService.getMockedData"
                       (selectHandler)="emojiService.onSelected($event)"

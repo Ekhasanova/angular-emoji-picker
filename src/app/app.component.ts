@@ -11,30 +11,15 @@ import { EmojiPickerComponent } from 'emojiPicker';
 })
 export class AppComponent implements OnInit {
   @ViewChild('container') container: ElementRef;
+  @ViewChild('button') button: ElementRef;
   @ViewChild('pickerComponent') pickerComponent: EmojiPickerComponent<EmojiMap>;
 
-  private emojiInited = false;
-
   constructor(public emojiService: EmojiService) {}
-
-  get element(): HTMLElement {
-    return this.container.nativeElement;
-  }
 
   ngOnInit(): void {}
 
   onOutsideClick() {
-    if (this.emojiInited) {
-      this.pickerComponent.callEmojiBlockAction('hide');
-    }
-  }
-
-  onClick() {
-    if (!this.emojiInited) {
-      this.pickerComponent.callEmojiBlockAction('render', this.container.nativeElement);
-      this.emojiInited = true;
-    }
-    this.pickerComponent.callEmojiBlockAction('show');
+    this.pickerComponent.callEmojiBlockAction('hide');
   }
 
 }

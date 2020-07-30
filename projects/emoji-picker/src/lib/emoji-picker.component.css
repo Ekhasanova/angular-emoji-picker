@@ -1,0 +1,21 @@
+.emoji-picker, .emoji-picker__container {
+  width: fit-content;
+}
+.emoji-picker svg {
+  fill: currentColor;
+}
+.emoji-picker__button {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eef2f4;
+  color: #62687F;
+}
+.emoji-picker__button:hover,
+.emoji-picker__button:focus {
+  color: #262626;
+}
