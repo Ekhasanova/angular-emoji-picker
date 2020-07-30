@@ -2,6 +2,7 @@ import { Component, ElementRef, EventEmitter, Input, NgZone, OnInit, Output, Vie
 import { EmojiPicker } from 'daily-emoji-picker';
 import { EmojiMap, EmojiSourceFn } from 'daily-emoji-picker/dist/types';
 import { EmojiData } from 'daily-emoji-picker/src/ts/types';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'lib-emoji-picker',
@@ -30,6 +31,8 @@ export class EmojiPickerComponent<T extends EmojiMap> implements OnInit {
   private emojiPicker: EmojiPicker<EmojiMap>;
   private rendered = false;
 
+  public onEmojiPickerInited = new Subject<boolean>();
+
   constructor(private ngZone: NgZone) { }
 
   private onSelected(data: EmojiData): void {
@@ -44,6 +47,7 @@ export class EmojiPickerComponent<T extends EmojiMap> implements OnInit {
         onSelect: this.onSelected.bind(this)
       });
       this.emojiPicker.init();
+      this.onEmojiPickerInited.next(true);
     });
   }
 
