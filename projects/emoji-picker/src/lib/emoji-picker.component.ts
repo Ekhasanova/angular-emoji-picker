@@ -47,12 +47,6 @@ export class EmojiPickerComponent<T extends EmojiMap> implements OnInit {
     });
   }
 
-  private setListeners() {
-    if (this.button) {
-      this.button.addEventListener('click', this.showPicker.bind(this));
-    }
-  }
-
   public showPicker(): void {
     if (!this.rendered) {
       this.callEmojiBlockAction('render');
@@ -78,7 +72,6 @@ export class EmojiPickerComponent<T extends EmojiMap> implements OnInit {
 
   ngOnInit() {
     this.setEmojiBlock();
-    this.setListeners();
   }
 
 }
