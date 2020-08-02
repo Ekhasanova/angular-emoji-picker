@@ -1,8 +1,21 @@
 <div style="position: relative;">
-  <h2>Example of emoji-picker</h2>
-  <div>
+  <h2>Example of default emoji-picker</h2>
+  <lib-emoji-picker [source]="emojiService.getMockedData"
+                    (selectHandler)="emojiService.onSelected($event)"
+  ></lib-emoji-picker>
+  <h2>Example of prerendered emoji-picker</h2>
+  <lib-emoji-picker [source]="emojiService.getMockedData"
+                    [renderImmediately]="true"
+                    (selectHandler)="emojiService.onSelected($event)"
+  ></lib-emoji-picker>
+  <h2>Example of emoji-picker with custom button</h2>
+  <div (clickOutside)="onClickOutside()">
+    <div #button (click)="onClick()">Button</div>
+    <div #container></div>
     <lib-emoji-picker #pickerComponent
                       [source]="emojiService.getMockedData"
+                      [button]="button"
+                      [container]="container"
                       (selectHandler)="emojiService.onSelected($event)"
     ></lib-emoji-picker>
   </div>

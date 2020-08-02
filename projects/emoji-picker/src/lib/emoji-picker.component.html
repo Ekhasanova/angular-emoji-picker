@@ -1,4 +1,4 @@
-<div (clickOutside)="!button && hidePicker()" class="emoji-picker">
+<div *ngIf="!renderImmediately; else onlyContainer" (clickOutside)="!button && hidePicker()" class="emoji-picker">
   <ng-container *ngIf="!button">
     <div (click)="showPicker()" class="emoji-picker__button">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -14,3 +14,7 @@
     <div #defaultCtnr class="emoji-picker__container"></div>
   </ng-container>
 </div>
+
+<ng-template #onlyContainer>
+  <div *ngIf="!container" #defaultCtnr class="emoji-picker__container"></div>
+</ng-template>

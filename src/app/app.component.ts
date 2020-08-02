@@ -18,8 +18,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onOutsideClick() {
-    this.pickerComponent.callEmojiBlockAction('hide');
+  onClick() {
+    this.pickerComponent.showPicker();
+  }
+
+  onClickOutside() {
+    this.pickerComponent.hidePicker();
   }
 
 }

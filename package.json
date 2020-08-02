@@ -22,7 +22,7 @@
     "@angular/router": "^7.2.16",
     "autobind-decorator": "^2.4.0",
     "core-js": "^2.5.4",
-    "daily-emoji-picker": "^2.0.5",
+    "daily-emoji-picker": "^2.0.8",
     "ng-click-outside": "^6.0.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
